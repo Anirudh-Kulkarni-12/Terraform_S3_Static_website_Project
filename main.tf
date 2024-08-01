@@ -46,6 +46,30 @@ resource "aws_s3_object" "errorfile" {
     content_type = "text/html"
 }
 
+resource "aws_s3_object" "aboutfile" {
+    bucket = aws_s3_bucket.mybucket.id
+    key = "about.html"
+    source = "about.html"
+    acl = "public-read"
+    content_type = "text/html"
+}
+
+resource "aws_s3_object" "contactfile" {
+    bucket = aws_s3_bucket.mybucket.id
+    key = "contact.html"
+    source = "contact.html"
+    acl = "public-read"
+    content_type = "text/html"
+}
+
+resource "aws_s3_object" "stylesfile" {
+    bucket = aws_s3_bucket.mybucket.id
+    key = "styles.css"
+    source = "styles.css"
+    acl = "public-read"
+    content_type = "text/html"
+}
+
 resource "aws_s3_bucket_website_configuration" "my_s3_website" {
     bucket = aws_s3_bucket.mybucket.id
     index_document {
