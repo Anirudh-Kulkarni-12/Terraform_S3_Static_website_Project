@@ -29,3 +29,19 @@ resource "aws_s3_bucket_acl" "mybucket_acl" {
      bucket = aws_s3_bucket.mybucket.id
      acl = "public-read"
 }
+
+resource "aws_s3_object" "indexfile" {
+    bucket = aws_s3_bucket.mybucket.id
+    key = "index.html"
+    source = "index.html"
+    acl = "public-read"
+    content_type = "text/html"
+}
+
+resource "aws_s3_object" "errorfile" {
+    bucket = aws_s3_bucket.mybucket.id
+    key = "error.html"
+    source = "error.html"
+    acl = "public-read"
+    content_type = "text/html"
+}
